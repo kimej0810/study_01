@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>게시판 만들기</title>
 		<meta chatset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="context-path" th:content="@{/}"/>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -12,17 +13,23 @@
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
 				<a href="#" class="navbar-brand">게시판 만들기</a>
+				<!-- width 575px 이하일때 나타남-->
 				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapseNav">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="collapseNav">
-					<ul class="navbar-nav">
+				<div class="collapse navbar-collapse offcanvas-collapse" id="collapseNav">
+					<ul class="navbar-nav me-auto">
 						<li class="nav-item">
 							<a href="#" class="nav-link">메인</a>
 						</li>
-						<li class="nav-item dropdown">
+						<li class="nav-item">
+							<a href="/board" class="nav-link">게시판</a>
+						</li>
+					</ul>
+					<form>
+						<div class="navbar-nav dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								게시판
+								손님
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
@@ -35,38 +42,15 @@
 									<a class="dropdown-item" href="#">drop</a>
 								</li>
 							</ul>
-						</li>
-					</ul>
+						</div>
+					</form>
 				</div>
+				
 			</div>
 		</nav>
-			<!--<div class="dropdown">
-			<button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-				드롭다운 메뉴
-			</button>
-				<div class="dropdown-menu">
-					<a href="#" class="dropdown-item">1</a>
-					<a href="#" class="dropdown-item">1</a>
-					<a href="#" class="dropdown-item">1</a>
-				</div>
-			</div>-->
-
 		
+		<div th:text="${template}">	
 		
-		<div>		
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col" width="10%">글번호</th>
-						<th scope="col" width="20%">작성자</th>
-						<th scope="col" width="50%">제목</th>
-						<th scope="col" width="20%">작성일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<td colspan="4">내용이 들어올 곳입니다.</td>
-				</tbody>
-			</table>
 		</div>
 	</body>
 </html>
