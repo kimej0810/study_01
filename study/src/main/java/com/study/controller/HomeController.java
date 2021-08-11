@@ -17,5 +17,10 @@ public class HomeController {
 		model.addAttribute("template","views/board");
 		return "views/board";
 	}
+	@GetMapping("/write")
+	public String write(Model model){
+		model.addAttribute("template","views/write");
+		return "views/write";
+	}
 
 }
